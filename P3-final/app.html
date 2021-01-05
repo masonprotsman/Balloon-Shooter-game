@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Three.js Ray Caster Game</title>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+
+    <!------- LIBRARIES ------->
+
+    <!-- use modules here -->
+    <!-- p4 has modules -->
+    <!-- import statements -->
+
+    <!-- jQuery source -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- three.js source -->
+    <script src='https://threejs.org/build/three.min.js'></script>
+    <!-- GLTFLoader.js source -->
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+
+
+    <script>
+        let timeVar = 30;
+        var x = setInterval(function () {
+            if(timeVar > 0) {
+                timeVar = timeVar - 1;
+                document.getElementById("time").innerHTML = timeVar;
+            }
+            else {
+                document.getElementById("time").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
+</head>
+
+<body>
+    <div id="scene-container">
+        <script src="app.js"></script>
+    </div>
+    <h3 style="position:fixed; top:5px; left:5px; padding:8px;
+           margin: 0; z-index:10; background-color:#880000;
+           color:white; border: thick solid black">
+        Remaining: <span id="remaining">0</span><br>
+        Destroyed: <span id="destroyed">0</span><br>
+        Time: <span id="time">30</span>
+    </h3>
+</body>
+</html>

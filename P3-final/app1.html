@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Three.js Ray Caster Game</title>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+
+    <script type="module">
+        import * as THREE from 'https://unpkg.com/three@0.120.0/build/three.module.js'
+        import { GLTFLoader } from 'https://unpkg.com/three@0.120.0/examples/jsm/loaders/GLTFLoader.js'
+
+        const loader = new GLTFLoader();
+        loader.load('BalloonModel.glb', handle_load);
+
+        let mesh;
+        function handle_load(gltf){
+            mesh = gltf.scene.children[0];
+            //mesh.material = material;
+            //mesh.material.shading = THREE.SmoothShading;
+            scene.add(mesh);
+        }
+    </script>
+
+    <script type="module" src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://unpkg.com/three@0.120.0/build/three.js"></script>
+
+    <script>
+        var timeVar = 30;
+        var x = setInterval(function () {
+            if(timeVar > 0) {
+                timeVar = timeVar - 1;
+                document.getElementById("time").innerHTML = timeVar;
+            }
+            else {
+                document.getElementById("time").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
+</head>
+
+<body>
+    <div id="scene-container">
+        <script src="app.js"></script>
+    </div>
+    <h3 style="position:fixed; top:5px; left:5px; padding:8px;
+           margin: 0; z-index:10; background-color:#880000;
+           color:white; border: thick solid black">
+        Remaining: <span id="remaining">0</span><br>
+        Destroyed: <span id="destroyed">0</span><br>
+        Time: <span id="time">30</span>
+    </h3>
+</body>
+</html>
